@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class PrimeFactorization {
     public static void main(String args[]) {
-        System.out.println("Enter number");
+        System.out.println("Enter number ");
         Scanner input = new Scanner(System.in);
         int num = input.nextInt();
         System.out.println("prime factors are ");
