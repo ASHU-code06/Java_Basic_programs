@@ -15,7 +15,7 @@ public class PrimeFactorization {
             }
         }
         if(num >2) {
-            System.out.println("and "+num);
+            System.out.println("1\n"+num);
         }
     }
  }
