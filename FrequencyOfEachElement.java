@@ -1,35 +1,40 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class FrequencyOfEachElement {
-    public static void main(String args[]) {
-        Scanner obj = new Scanner(System.in);
-        System.out.println("Enter size of an array");
-        int n =obj.nextInt();
-        int array[] = new int[n];
+    // Java program to count frequencies of array items
+        public static void countFreq(int arr[], int n)
+        {
+            boolean visited[] = new boolean[n];
 
-        int visitedarr[] = new int[array.length];
-        int visited = -1;
-        System.out.println("Enter elements of an array");
-        for (int k = 0; k < array.length; k++) {
-            array[k] = obj.nextInt();
-        }
-        int count = 1;
-        for (int f = 0; f < array.length; f++) {
+            Arrays.fill(visited, false);
 
-            for (int g = f + 1; g < array.length; g++) {
-                if (array[f] == array[g]) {
-                    visitedarr[f] = visited;
-                    count++;
+            // Traverse through array elements and
+            // count frequencies
+            for (int i = 0; i < n; i++) {
+
+                // Skip this element if already processed
+                if (visited[i] == true)
+                    continue;
+
+                // Count frequency
+                int count = 1;
+                for (int j = i + 1; j < n; j++) {
+                    if (arr[i] == arr[j]) {
+                        visited[j] = true;
+                        count++;
+                    }
                 }
-            }
-            if (visitedarr[f] != visited) {
-                visitedarr[f] = count;
+                System.out.println(arr[i] + " " + count);
             }
         }
-        for (int i=0;i<visitedarr.length;i++){
-            if (visitedarr[i]!=visited){
-                System.out.println("Frequency of "+array[i]+" : "+visitedarr[i]);
-            }
+
+        // Driver code
+        public static void main(String []args)
+        {
+            int arr[] = new int[]{ 10, 20, 20, 10, 10, 20, 5, 20 };
+            int n = arr.length;
+            countFreq(arr, n);
         }
     }
-}
+

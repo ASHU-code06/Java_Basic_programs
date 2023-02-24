@@ -17,12 +17,10 @@ public class DuplicateElements {
         for (int i=0;i< array.length;i++){
             for(int j=i+1;j< array.length;j++){
                 if ((array[i]==array[j])&&(i!=j)){
-                    duplicateArray[i]=array[i];
+                    duplicateArray[i]=array[j];
+                    System.out.println(array[j]);
                 }
             }
-        }
-        for (int a : duplicateArray){
-            System.out.println(a);
         }
     }
 }
